@@ -17,7 +17,7 @@ export default function Home() {
             <br/>
            <strong>De:</strong><i> Ryan</i><br/>
            <strong>Para:</strong><i> Letícia</i>
-           version 1
+           
         </>
     )
 

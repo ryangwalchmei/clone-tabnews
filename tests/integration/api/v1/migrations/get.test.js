@@ -1,4 +1,4 @@
-import database from 'infra/database.js';
+import database from "infra/database.js";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {

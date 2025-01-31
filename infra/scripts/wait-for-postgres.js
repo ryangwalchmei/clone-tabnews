@@ -1,7 +1,7 @@
 const { exec } = require("node:child_process");
 
 let intervalId;
-function startLoader({ text = "Loading ...", frames, interval = 100 }) {
+function startLoader({ text = "Loading ...", frames }) {
   const loader = frames ?? ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
   let index = 0;
   intervalId = setInterval(function () {
@@ -16,7 +16,7 @@ function stopLoader() {
 }
 
 function checkPostgres() {
-  function handleReturn(error, stdout, stderr) {
+  function handleReturn(error, stdout) {
     if (stdout.search("accepting connections") === -1) {
       checkPostgres();
       return;

@@ -27,27 +27,6 @@ test("HEAD to /api/v1/migrations should return 405", async () => {
   expect(response.status).toBe(405);
 });
 
-test("HEAD to /api/v1/migrations should return 405", async () => {
-  const response = await fetch("http://localhost:3000/api/v1/migrations", {
-    method: "HEAD",
-  });
-  expect(response.status).toBe(405);
-});
-
-test("HEAD to /api/v1/migrations should return 405", async () => {
-  const response = await fetch("http://localhost:3000/api/v1/migrations", {
-    method: "HEAD",
-  });
-  expect(response.status).toBe(405);
-});
-
-test("HEAD to /api/v1/migrations should return 405", async () => {
-  const response = await fetch("http://localhost:3000/api/v1/migrations", {
-    method: "HEAD",
-  });
-  expect(response.status).toBe(405);
-});
-
 test("OPTIONS to /api/v1/migrations should return 405", async () => {
   const response = await fetch("http://localhost:3000/api/v1/migrations", {
     method: "OPTIONS",

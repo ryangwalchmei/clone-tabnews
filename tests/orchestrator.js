@@ -21,6 +21,7 @@ async function waitForAllServices() {
 
 const orchestrator = {
   waitForAllServices,
+  key: ""
 };
 
 export default orchestrator;

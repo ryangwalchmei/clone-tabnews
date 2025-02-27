@@ -19,7 +19,7 @@
     "lint:eslint:check": "next lint --dir .",
     "prepare": "husky",
     "commit": "npm run lint:sensitive-data:check && cz",
-    "lint:sensitive-data:check": "npx check-for-secrets git-cached"
+    "lint:sensitive-data:check": "npx check-for-secrets all-files"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "check-for-secrets": "^1.0.6",
+    "check-for-secrets": "^1.1.8",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",

@@ -24,14 +24,11 @@ describe("GET /api/v1/status", () => {
       expect(typeof responseBody.dependencies.database.max_connections).toBe(
         "number",
       );
-      // expect(responseBody.dependencies.database.max_connections).toEqual(100);
 
       expect(
         responseBody.dependencies.database.opened_connections,
       ).toBeDefined();
       expect(responseBody.dependencies.database.opened_connections).toEqual(1);
-
-      console.log(responseBody);
     });
   });
 });

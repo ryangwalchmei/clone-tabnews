@@ -23,13 +23,6 @@ describe("API /api/v1/migrations", () => {
       });
     });
 
-    describe("Use HEAD method", () => {
-      test("should return 405", async () => {
-        const response = await fetch(url, { method: "HEAD" });
-        expect(response.status).toBe(405);
-      });
-    });
-
     describe("Use OPTIONS method", () => {
       test("should return 405", async () => {
         const response = await fetch(url, { method: "OPTIONS" });

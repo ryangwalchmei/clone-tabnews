@@ -64,6 +64,10 @@ async function createSession(userId) {
   return await session.create(userId);
 }
 
+async function activateUser(inactiveUser) {
+  return await user.setFeatures(inactiveUser.id, ["create:session"]);
+}
+
 async function deleteAllEmails() {
   await fetch(`${emailHttpUrl}/messages`, {
     method: "DELETE",
@@ -104,6 +108,7 @@ const orchestrator = {
   deleteAllEmails,
   getLastEmail,
   extractUUID,
+  activateUser,
 };
 
 export default orchestrator;

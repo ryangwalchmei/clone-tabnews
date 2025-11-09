@@ -65,7 +65,10 @@ async function createSession(userId) {
 }
 
 async function activateUser(inactiveUser) {
-  return await user.setFeatures(inactiveUser.id, ["create:session"]);
+  return await user.setFeatures(inactiveUser.id, [
+    "create:session",
+    "read:session",
+  ]);
 }
 
 async function deleteAllEmails() {

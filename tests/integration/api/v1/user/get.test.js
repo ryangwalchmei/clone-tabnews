@@ -18,7 +18,7 @@ describe("GET /api/v1/user", () => {
 
       const responseBody = await response.json();
       expect(responseBody).toEqual({
-        name: "UnauthorizedError",
+        name: "ForbiddenError",
         message: "Você não possui permissão para executar essa ação",
         action: 'Verifique se seu usuário possui a feature "read:session".',
         status_code: 403,

@@ -163,7 +163,7 @@ describe("PATCH /activations/[token_id]", () => {
       const responseBody = await response.json();
 
       expect(responseBody).toEqual({
-        name: "UnauthorizedError",
+        name: "ForbiddenError",
         message: "Você não pode mais utilizar tokens de ativaçãos.",
         action: "Entre em contato com o suporte.",
         status_code: 403,
@@ -193,7 +193,7 @@ describe("PATCH /activations/[token_id]", () => {
       expect(activationResponse.status).toBe(403);
       const activationResponseBody = await activationResponse.json();
       expect(activationResponseBody).toEqual({
-        name: "UnauthorizedError",
+        name: "ForbiddenError",
         message: "Você não possui permissão para executar essa ação",
         action:
           'Verifique se seu usuário possui a feature "read:activation_token".',

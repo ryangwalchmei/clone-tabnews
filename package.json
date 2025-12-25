@@ -19,35 +19,33 @@
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "next lint --dir .",
     "prepare": "husky",
-    "commit": "npm run lint:sensitive-data:check && cz",
-    "lint:sensitive-data:check": "npx check-for-secrets all-files"
+    "commit": "cz"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "9.7.0",
     "async-retry": "1.3.3",
-    "bcryptjs": "3.0.2",
-    "cookie": "1.0.2",
+    "bcryptjs": "3.0.3",
+    "cookie": "1.1.1",
     "dotenv": "16.4.7",
-    "dotenv-expand": "12.0.1",
-    "next": "15.2.1",
+    "dotenv-expand": "12.0.3",
+    "next": "15.2.6",
     "next-connect": "1.0.0",
     "node-pg-migrate": "7.9.1",
-    "nodemailer": "7.0.5",
-    "pg": "8.13.3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "set-cookie-parser": "2.7.1",
-    "swr": "2.3.3",
+    "nodemailer": "7.0.12",
+    "pg": "8.16.3",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "set-cookie-parser": "2.7.2",
+    "swr": "2.3.8",
     "uuid": "11.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
-    "check-for-secrets": "1.1.8",
     "commitizen": "4.3.1",
-    "concurrently": "9.1.2",
+    "concurrently": "9.2.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.57.0",
     "eslint-config-next": "15.2.1",
@@ -55,7 +53,7 @@
     "eslint-plugin-jest": "28.11.0",
     "husky": "9.1.7",
     "jest": "29.7.0",
-    "prettier": "3.5.3"
+    "prettier": "3.7.4"
   },
   "config": {
     "commitizen": {

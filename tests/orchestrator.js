@@ -68,6 +68,7 @@ async function activateUser(inactiveUser) {
   return await user.setFeatures(inactiveUser.id, [
     "create:session",
     "read:session",
+    "update:user",
   ]);
 }
 

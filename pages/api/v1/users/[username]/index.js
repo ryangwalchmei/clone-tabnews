@@ -1,6 +1,8 @@
 import { createRouter } from "next-connect";
 import controller from "infra/controller.js";
 import user from "models/user.js";
+import authorization from "models/authorization";
+import { ForbiddenError } from "infra/errors";
 
 const router = createRouter();
 
@@ -18,9 +20,19 @@ async function getHandler(request, response) {
 
 async function patchHandler(request, response) {
   const username = request.query.username;
-  console.log(request.context);
-
   const userInputValues = request.body;
+
+  //user, feature, resource
+  const userTryingToPatch = request.context.user;
+  const targetUser = await user.findOneByUsername(username);
+
+  if (!authorization.can(userTryingToPatch, "update:user", targetUser)) {
+    throw new ForbiddenError({
+      message: "Você não possui permissão para atualizar outro usuário.",
+      action:
+        "Verifique se você possui a feature necessária para atualizar outro usuário.",
+    });
+  }
 
   const updatedUser = await user.update(username, userInputValues);
   return response.status(200).json(updatedUser);

@@ -106,6 +106,45 @@ describe("PATCH /api/v1/users/[username]", () => {
       });
     });
 
+    test("With `user4` targeting 'user3'", async () => {
+      const createdUser3 = await orchestrator.createUser({
+        username: "user3",
+      });
+      await orchestrator.activateUser(createdUser3);
+
+      const createdUser4 = await orchestrator.createUser({
+        username: "user4",
+      });
+
+      const activatedUser4 = await orchestrator.activateUser(createdUser4);
+      const sessionObject4 = await orchestrator.createSession(
+        activatedUser4.id,
+      );
+
+      const response = await fetch("http://localhost:3000/api/v1/users/user3", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `session_id=${sessionObject4.token}`,
+        },
+        body: JSON.stringify({
+          username: "userX",
+        }),
+      });
+
+      expect(response.status).toBe(403);
+
+      const responseBody = await response.json();
+
+      expect(responseBody).toEqual({
+        name: "ForbiddenError",
+        action:
+          "Verifique se você possui a feature necessária para atualizar outro usuário.",
+        message: "Você não possui permissão para atualizar outro usuário.",
+        status_code: 403,
+      });
+    });
+
     test("With duplicated 'email'", async () => {
       await orchestrator.createUser({
         email: "email1@gwalchmei.com.br",

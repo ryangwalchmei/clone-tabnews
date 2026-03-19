@@ -68,6 +68,7 @@ async function activateUser(inactiveUser) {
   return await user.setFeatures(inactiveUser.id, [
     "create:session",
     "read:session",
+    "update:user",
   ]);
 }
 
@@ -102,6 +103,11 @@ function extractUUID(text) {
   return match ? match[0] : null;
 }
 
+async function addFeaturesToUser(userObject, newFeatures) {
+  const updatedUser = await user.addFeatures(userObject.id, newFeatures);
+  return updatedUser;
+}
+
 const orchestrator = {
   waitForAllServices,
   clearDatabase,
@@ -112,6 +118,7 @@ const orchestrator = {
   getLastEmail,
   extractUUID,
   activateUser,
+  addFeaturesToUser,
 };
 
 export default orchestrator;

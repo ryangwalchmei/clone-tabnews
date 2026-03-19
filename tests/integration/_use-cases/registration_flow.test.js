@@ -39,8 +39,6 @@ describe("Use case: Registration Flow (all successfull)", () => {
     expect(createUserResponseBody).toEqual({
       id: createUserResponseBody.id,
       username: "RegistrationFlow",
-      email: "registration.flow@gwalchmei.com.br",
-      password: createUserResponseBody.password,
       features: ["read:activation_token"],
       created_at: createUserResponseBody.created_at,
       updated_at: createUserResponseBody.updated_at,
@@ -66,8 +64,6 @@ describe("Use case: Registration Flow (all successfull)", () => {
     const activationTokenObject =
       await activation.findOneValidById(activationTokenId);
 
-    console.log(activationTokenObject);
-
     expect(activationTokenObject.user_id).toBe(createUserResponseBody.id);
     expect(activationTokenObject.use_at).toBe(null);
   });
@@ -86,7 +82,11 @@ describe("Use case: Registration Flow (all successfull)", () => {
     expect(Date.parse(activationResponseBody.use_at)).not.toBeNaN();
 
     const activatedUser = await user.findOneByUsername("RegistrationFlow");
-    expect(activatedUser.features).toEqual(["create:session", "read:session"]);
+    expect(activatedUser.features).toEqual([
+      "create:session",
+      "read:session",
+      "update:user",
+    ]);
   });
 
   test("Login", async () => {

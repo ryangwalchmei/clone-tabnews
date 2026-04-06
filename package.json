@@ -32,11 +32,11 @@
     "next": "15.2.6",
     "next-connect": "1.0.0",
     "node-pg-migrate": "7.9.1",
-    "nodemailer": "7.0.12",
+    "nodemailer": "8.0.4",
     "pg": "8.20.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "set-cookie-parser": "2.7.2",
+    "set-cookie-parser": "3.1.0",
     "swr": "2.4.1",
     "uuid": "11.1.0"
   },

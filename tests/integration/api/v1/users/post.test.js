@@ -139,7 +139,7 @@ describe("POST /api/v1/users", () => {
     test("With user logged", async () => {
       const userCreated = await orchestrator.createUser();
       await orchestrator.activateUser(userCreated);
-      const sessionObject = await orchestrator.createSession(userCreated.id);
+      const sessionObject = await orchestrator.createSession(userCreated);
 
       const response = await fetch(`${webserver.origin}/api/v1/users`, {
         method: "POST",

@@ -1,4 +1,3 @@
-/* eslint-disable jest/expect-expect */
 import webserver from "infra/webserver";
 import activation from "models/activation";
 import user from "models/user";

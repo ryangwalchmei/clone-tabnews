@@ -1,3 +1,4 @@
+import webserver from "infra/webserver";
 import orchestrator from "tests/orchestrator.js";
 
 beforeAll(async () => {
@@ -7,7 +8,7 @@ beforeAll(async () => {
 
 describe("API /api/v1/migrations", () => {
   describe("Anonymous user", () => {
-    const url = "http://localhost:3000/api/v1/migrations";
+    const url = `${webserver.origin}/api/v1/migrations`;
 
     describe("Use DELETE method", () => {
       test("should return 405", async () => {
